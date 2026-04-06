@@ -272,6 +272,38 @@ Pre-trained model weights for all three expanding windows and the reference mode
 
 ---
 
+## Validation & Robustness
+
+The embedding is evaluated through multiple independent tests, all reported in the [paper](https://papers.ssrn.com/abstract=6503446):
+
+| Test | Result |
+|------|--------|
+| **ADS correlation** | Out-of-sample correlation of 0.50 with the Aruoba-Diebold-Scotti Business Conditions Index, which is never used in training |
+| **NBER recession recovery** | Unsupervised k-means clustering on the embedding recovers NBER recession dates with 13-26x higher alignment than linear PCA on the same inputs |
+| **Bond excess returns** | Embedding PCs raise out-of-sample R-squared for 2- through 5-year bond excess returns by 10-34 percentage points beyond yield-curve factors alone |
+| **Clark-West tests** | Statistically significant at the 1% level for all maturities at the annual forecast horizon, rejecting equal predictive ability against the yield-only benchmark |
+| **Giacomini-White tests** | Confirm superior conditional predictive ability of the embedding-augmented model across expansion and recession subsamples |
+| **Equity return prediction** | Near-zero out-of-sample R-squared for equity excess returns, confirming the embedding measures the economic state rather than exploitable return patterns |
+| **Covid-19 pseudo-OOS** | With all parameters frozen at December 2017, the embedding tracks the 2020 contraction and recovery as the largest displacement in its 36-year history - no retraining, no parameter updating |
+| **Macro nowcasting** | Real-time ADS nowcasting from the embedding achieves positive out-of-sample R-squared during crisis periods when standard models deteriorate |
+
+---
+
+## Contributing
+
+Contributions that extend the world embedding or apply it to new settings are welcome. Areas of particular interest include:
+
+- **Temporal extension.** Updating the embedding beyond June 2021 as new data becomes available
+- **Additional modalities.** Integrating new data sources (e.g., social media sentiment, satellite imagery, earnings call transcripts) as input features
+- **Cross-country versions.** Adapting the architecture to produce daily state embeddings for non-U.S. economies
+- **Alternative architectures.** Experimenting with Transformer-based or diffusion-based state transition models in place of the GRU
+- **New applications.** Using the embedding in settings beyond bond pricing and macro forecasting (e.g., corporate event studies, credit risk, portfolio construction)
+- **Benchmark comparisons.** Evaluating the embedding against other state measures or dimensionality reduction methods on standardized tasks
+
+To contribute, please open an [issue](https://github.com/elittb/world-embedding/issues) or submit a pull request. If you use the embedding in a published study, a citation to the [paper](https://papers.ssrn.com/abstract=6503446) is appreciated.
+
+---
+
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
