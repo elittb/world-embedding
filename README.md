@@ -9,10 +9,7 @@ A daily, low-dimensional representation of the aggregate economic state, built f
 
 ## Author
 
-* [Elham Tabatabaei](https://www.elhamtabatabaei.com/) · [ORCID](https://orcid.org/0000-0002-9208-1105)
-
-PhD Candidate, Schulich School of Business, York University;
-Visiting Scholar, Rady School of Management, UC San Diego
+[Elham Tabatabaei](https://www.elhamtabatabaei.com/)
 
 ## Academic Paper
 
