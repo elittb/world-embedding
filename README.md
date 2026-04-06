@@ -45,7 +45,8 @@ If you use this data or methodology in your research, please cite the paper:
 5. **Bond risk premia.** Embedding principal components raise out-of-sample R-squared for bond excess returns by 10-34 percentage points beyond yield-curve factors.
 6. **Near-zero equity return prediction.** The embedding does not predict stock returns, confirming it captures the economic state rather than exploitable return patterns.
 7. **Covid-robust.** With all parameters frozen at December 2017, the embedding tracks the 2020 contraction and recovery without retraining.
-8. **Pip-installable.** Available as a Python package with convenience functions for loading embeddings, extracting principal components, and accessing regime labels.
+8. **Pre-trained weights included.** All model weights for the three expanding windows and the full-sample reference model are available under [Releases](https://github.com/elittb/world-embedding/releases), along with hyperparameters and normalization statistics, so you can load the trained model directly without retraining.
+9. **Pip-installable.** Available as a Python package with convenience functions for loading embeddings, extracting principal components, and accessing regime labels.
 
 ---
 
