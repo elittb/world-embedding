@@ -1,0 +1,25 @@
+cff-version: 1.2.0
+message: "If you use the world embedding in your research, please cite the paper (not this repository)."
+title: "World Embedding: The Daily Economic State and Bond Risk Premia"
+authors:
+  - family-names: "Tabatabaei"
+    given-names: "Elham"
+    email: "elliettb@schulich.yorku.ca"
+    affiliation: "Schulich School of Business, York University"
+    orcid: "https://orcid.org/0000-0002-9208-1105"
+type: software
+date-released: "2026-04-01"
+url: "https://github.com/elittb/world-embedding"
+repository-code: "https://github.com/elittb/world-embedding"
+license: MIT
+preferred-citation:
+  type: article
+  title: "World Embedding: The Daily Economic State and Bond Risk Premia"
+  authors:
+    - family-names: "Tabatabaei"
+      given-names: "Elham"
+      orcid: "https://orcid.org/0000-0002-9208-1105"
+  year: 2026
+  journal: "SSRN Working Paper"
+  number: "6503446"
+  url: "https://papers.ssrn.com/abstract=6503446"
