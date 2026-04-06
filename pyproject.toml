@@ -56,6 +56,7 @@ replication = [
 [project.urls]
 Homepage = "https://github.com/elittb/world-embedding"
 Paper = "https://papers.ssrn.com/abstract=6503446"
+"Author Website" = "https://www.elhamtabatabaei.com/"
 Issues = "https://github.com/elittb/world-embedding/issues"
 
 [tool.setuptools.packages.find]
