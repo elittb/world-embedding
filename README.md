@@ -1,6 +1,10 @@
 # World Embedding
 
-A daily, low-dimensional representation of the aggregate economic state, built from 505 features across seven information modalities and released as pre-computed vectors for direct use in empirical research.
+Researchers routinely control for the aggregate economic state in event studies, asset-pricing tests, and macro forecasts, yet no single variable captures it. Instead, most studies stack partial proxies - VIX for volatility, EPU for policy uncertainty, credit spreads for default risk, the term spread for the business cycle - each measuring one narrow slice. When the state shifts, these proxies can move in conflicting directions, leaving gaps in coverage and injecting noise into inference.
+
+The **world embedding** solves this by compressing **505 daily features across seven information modalities** - news narratives, economic policy uncertainty, geopolitical risk, news sentiment, domestic financial markets, international markets and FX, and macroeconomic indicators - into a single **64-dimensional vector for every U.S. business day**. It is the most comprehensive daily representation of the economic state available to researchers: one vector that sees everything the major proxies see, plus the cross-modal interactions they miss.
+
+The embedding is trained under a strict **expanding-window protocol**, so the vector for day *t* uses only information available through day *t* - no look-ahead bias, ready for real-time research. It is released here as **9,520 pre-computed daily vectors** (1985-2021) that can be merged into any dataset in three lines of code, with no ML expertise required.
 
 [![Paper](https://img.shields.io/badge/Paper-SSRN%206503446-blue)](https://papers.ssrn.com/abstract=6503446)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
