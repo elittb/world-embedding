@@ -70,7 +70,7 @@ cidx = yields_m.index.intersection(emb_m.index)
 yields_m = yields_m.loc[cidx]
 emb_m    = emb_m.loc[cidx]
 
-print(f"Monthly sample: {cidx[0].strftime('%Y-%m')} – "
+print(f"Monthly sample: {cidx[0].strftime('%Y-%m')} - "
       f"{cidx[-1].strftime('%Y-%m')}  (T = {len(cidx)})")
 
 
@@ -245,7 +245,7 @@ for h in horizons:
         continue
 
     print(f"\n── Horizon h = {h} month(s)  [OOS window: "
-          f"{rx_h.index[MIN_TRAIN].strftime('%Y-%m')} – "
+          f"{rx_h.index[MIN_TRAIN].strftime('%Y-%m')} - "
           f"{rx_h.index[-1].strftime('%Y-%m')}] ──")
 
     for tgt in targets:

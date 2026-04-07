@@ -1040,7 +1040,7 @@ def _val_metric_selfsup(val_avg: dict, cfg: DSSConfig) -> float:
 def train_reference_model(cfg: DSSConfig | None = None) -> None:
     """Train the full-sample reference model used for visualization (ADS plot, t-SNE, trajectory).
 
-    Trained on 1985–2014, validated on 2015–2017 (includes China deval / oil crash for
+    Trained on 1985-2014, validated on 2015-2017 (includes China deval / oil crash for
     strong ADS learning signal).  NOT used for any quantitative OOS statistics; those
     come from the expanding-window models.  Saved to ``cfg.output_dir / reference_model``.
     """
@@ -1061,7 +1061,7 @@ def train_reference_model(cfg: DSSConfig | None = None) -> None:
         print(f"Reference model already trained at {ckpt}. Skipping.")
         return
     print("=" * 60)
-    print("Training REFERENCE MODEL for visualization (1985–2014, val 2015–2017)")
+    print("Training REFERENCE MODEL for visualization (1985-2014, val 2015-2017)")
     print("=" * 60)
     train(ref_cfg)
 

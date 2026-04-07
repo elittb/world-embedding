@@ -9,7 +9,7 @@ You **can** verify **`https://elittb.github.io/world-embedding/`** (GitHub Pages
 1. Open the repo on GitHub: **Settings** → **Pages** (left sidebar).
 2. Under **Build and deployment** → **Source**, choose **Deploy from a branch**.
 3. **Branch:** `main`, folder **`/docs`**, then **Save**.
-4. After 1–2 minutes, the site should load at:
+4. After 1-2 minutes, the site should load at:
    **`https://elittb.github.io/world-embedding/`**
 
 (If the URL 404s, wait a few minutes and hard-refresh.)

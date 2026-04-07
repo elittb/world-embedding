@@ -178,7 +178,7 @@ class DSSConfig:
     # When True, default ``python -m src.evaluate`` / ``python src/evaluate.py`` runs journal
     # eval if all ``ew_*/best_model.pt`` exist. Use ``journal`` / ``standard`` CLI args as needed.
     use_expanding_window_eval: bool = True
-    # Stock–Watson-style macro DFM: static factors + lags in the monthly probe
+    # Stock-Watson-style macro DFM: static factors + lags in the monthly probe
     dfm_n_factors: int = 8
     dfm_n_lags: int = 3
 

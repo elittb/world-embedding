@@ -45,7 +45,7 @@ def load_regime_labels(path: Optional[str] = None) -> pd.Series:
     Returns
     -------
     pd.Series
-        Index: ``date`` (DatetimeIndex). Values: integer regime codes 0–15.
+        Index: ``date`` (DatetimeIndex). Values: integer regime codes 0-15.
     """
     p = Path(path) if path else _DATA_DIR / "world_embedding_regime_labels.csv"
     df = pd.read_csv(p, parse_dates=["date"], index_col="date")

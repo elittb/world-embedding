@@ -3,14 +3,14 @@ Covid-Era Embedding Extension: Simulation and Validation
 =========================================================
 
 Pipeline:
-  1. Download / assemble real data (Jan 2018 – Jun 2021) for all non-news modalities
+  1. Download / assemble real data (Jan 2018 - Jun 2021) for all non-news modalities
   2. Simulate 180 news-topic dimensions via conditional factor model (PCA + Ridge)
-  3. Concatenate with original 1985–2017 panel → combined CSV
+  3. Concatenate with original 1985-2017 panel → combined CSV
   4. Load trained DSSDE reference model and generate embeddings for the full span
   5. Validate the extension-period embeddings (regime recognition, ADS, conditions)
 
-Window:  data assembly  → Jan 2018 – Jun 2021  (bridge + Covid + recovery)
-         analysis focus → Jan 2019 – Jun 2021  (pre-Covid normality + crisis + recovery)
+Window:  data assembly  → Jan 2018 - Jun 2021  (bridge + Covid + recovery)
+         analysis focus → Jan 2019 - Jun 2021  (pre-Covid normality + crisis + recovery)
 
 Usage:
     python scripts/covid_era_extension.py              # full pipeline
@@ -414,7 +414,7 @@ def simulate_news_topics(orig_features: pd.DataFrame,
     """Simulate 180 news-topic attention shares for the extension period
     using a Factor-augmented VAR (FAVAR) estimated on pre-2017 data.
 
-    Model (standard in macro-finance, cf. Bernanke–Boivin–Eliasz 2005):
+    Model (standard in macro-finance, cf. Bernanke-Boivin-Eliasz 2005):
 
         f_t = A · f_{t-1} + B · x_t + ε_t,    ε_t ~ N(0, Σ)
 
@@ -426,7 +426,7 @@ def simulate_news_topics(orig_features: pd.DataFrame,
     Steps:
       1. PCA on 180 topics → K latent factors (pre-2017)
       2. Estimate FAVAR:  f_t = A · f_{t-1} + B · x_t + ε_t  via Ridge
-      3. Roll forward day-by-day using actual x_t (2018–2021), drawing ε_t
+      3. Roll forward day-by-day using actual x_t (2018-2021), drawing ε_t
       4. Reconstruct topics from factors; normalise to valid attention shares
       5. Deltas emerge naturally from the level dynamics
     """
@@ -697,7 +697,7 @@ def generate_embeddings(combined_path: Path) -> tuple:
 
     all_z, dates, all_regime = extract_full_embeddings(model, cfg, device,
                                                        blend_overlap=True)
-    print(f"  Embeddings: {all_z.shape} over {dates[0]} – {dates[-1]}")
+    print(f"  Embeddings: {all_z.shape} over {dates[0]} - {dates[-1]}")
 
     # Save
     OUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -758,7 +758,7 @@ def validate_embeddings(z: np.ndarray, dates: np.ndarray):
     plt.close(fig)
     print("  Saved: embedding_pcs_extended.pdf")
 
-    # ── 5b. Covid zoom (2019–2021) ──
+    # ── 5b. Covid zoom (2019-2021) ──
     zoom_mask = (dates >= pd.Timestamp(ANALYSIS_START)) & \
                 (dates <= pd.Timestamp(ANALYSIS_END))
     fig, axes = plt.subplots(2, 1, figsize=(12, 7), sharex=True)
@@ -772,7 +772,7 @@ def validate_embeddings(z: np.ndarray, dates: np.ndarray):
                        alpha=0.2, color="gray")
         ax.axvspan(pd.Timestamp("2020-02-01"), pd.Timestamp("2020-04-01"),
                    alpha=0.3, color="#2d8f47", label="Covid recession")
-    axes[0].set_title("Embedding PCs: Covid-Era Focus (2019–2021)")
+    axes[0].set_title("Embedding PCs: Covid-Era Focus (2019-2021)")
     axes[0].legend(loc="upper right", fontsize=8)
     axes[-1].set_xlabel("Date")
     fig.tight_layout()
@@ -975,7 +975,7 @@ def download_macro_targets_extended() -> pd.DataFrame:
                 if len(s) > 0:
                     ext_frames[code] = s
                     print(f"  [FRED] {code}: {len(s)} obs "
-                          f"({s.index[0].date()} – {s.index[-1].date()})")
+                          f"({s.index[0].date()} - {s.index[-1].date()})")
                 else:
                     print(f"  [FRED] {code}: empty after parse")
             else:
@@ -1155,7 +1155,7 @@ def validate_bond_spanning(z: np.ndarray, dates: np.ndarray):
     yields_m = yields_m.loc[cidx]
     emb_m = emb_m.loc[cidx]
 
-    print(f"  Monthly sample: {cidx[0].strftime('%Y-%m')} – "
+    print(f"  Monthly sample: {cidx[0].strftime('%Y-%m')} - "
           f"{cidx[-1].strftime('%Y-%m')}  (T = {len(cidx)})")
 
     # Yield PCs
@@ -1352,8 +1352,8 @@ def main():
 
     print("=" * 70)
     print("COVID-ERA EMBEDDING EXTENSION")
-    print(f"Extension window: Jan 2018 – Jun 2021")
-    print(f"Analysis focus:   Jan 2019 – Jun 2021")
+    print(f"Extension window: Jan 2018 - Jun 2021")
+    print(f"Analysis focus:   Jan 2019 - Jun 2021")
     print("=" * 70)
 
     # Load original panel header

@@ -1,10 +1,10 @@
-# World Embedding
+# *World Embedding*
 
-**Word2Vec maps words to vectors where semantic relationships become geometric regularities. The world embedding does the same for trading days: it maps each day to a vector where economic similarity is encoded as distance in a learned space.**
+**Word2Vec maps words to vectors where semantic relationships become geometric regularities. The *world embedding* does the same for trading days: it maps each day to a vector where economic similarity is encoded as distance in a learned space.**
 
 On any given day, investors, policymakers, and researchers confront an information environment of extraordinary breadth - macroeconomic releases, central-bank communications, geopolitical developments, asset prices, and a continuous stream of news narratives - yet the profession still measures the aggregate economic state with a handful of single-domain proxies: VIX for volatility, EPU for policy uncertainty, ADS for real activity, credit spreads for default risk. Each sees one slice. Researchers stack them in ad hoc specifications, accepting frequency mismatches, degrees-of-freedom costs, and linear aggregation that misses the nonlinear amplification characteristic of crises.
 
-The **world embedding** replaces that patchwork with a single object. It compresses **505 daily features spanning seven information modalities** - news narratives, economic policy uncertainty, geopolitical risk, news sentiment, domestic financial markets, international markets and FX, and macroeconomic indicators - into one **64-dimensional vector per U.S. business day**. No other publicly available measure jointly covers this breadth at daily frequency. The result is a compact, multimodal summary of the economic state that captures what the standard proxies capture individually, plus the cross-modal dynamics they miss.
+The ***world embedding*** replaces that patchwork with a single object. It compresses **505 daily features spanning seven information modalities** - news narratives, economic policy uncertainty, geopolitical risk, news sentiment, domestic financial markets, international markets and FX, and macroeconomic indicators - into one **64-dimensional vector per U.S. business day**. No other publicly available measure jointly covers this breadth at daily frequency. The result is a compact, multimodal summary of the economic state that captures what the standard proxies capture individually, plus the cross-modal dynamics they miss.
 
 The model is trained under a strict **expanding-window protocol**: the vector for day *t* uses only information available through day *t*, with no look-ahead bias. Training and out-of-sample evaluation cover **January 2, 1985 through December 29, 2017**. A pseudo-out-of-sample extension through **June 30, 2021** - with all model parameters frozen at their December 2017 values - demonstrates robustness across the Covid-19 crisis without any retraining. The full sample of **9,520 pre-computed daily vectors** is released here and can be merged into any dataset in three lines of code. No GPU, no deep-learning expertise, no retraining required.
 
@@ -294,7 +294,7 @@ The embedding is evaluated through multiple independent tests, all reported in t
 
 ## Contributing
 
-Contributions that extend the world embedding or apply it to new settings are welcome. Areas of particular interest include:
+Contributions that extend the *world embedding* or apply it to new settings are welcome. Areas of particular interest include:
 
 - **Temporal extension.** Updating the embedding beyond June 2021 as new data becomes available
 - **Additional modalities.** Integrating new data sources (e.g., social media sentiment, satellite imagery, earnings call transcripts) as input features

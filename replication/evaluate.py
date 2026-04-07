@@ -503,7 +503,7 @@ def gw_tests_from_prediction_tags(
     label_a: str = "a",
     label_b: str = "b",
 ) -> pd.DataFrame:
-    """Giacomini–White on mean squared loss differential L_a − L_b (paired dates)."""
+    """Giacomini-White on mean squared loss differential L_a − L_b (paired dates)."""
     pa = results_dir / f"nowcasting_preds_{tag_a}.csv"
     pb = results_dir / f"nowcasting_preds_{tag_b}.csv"
     if not pa.exists() or not pb.exists():
@@ -551,7 +551,7 @@ def dfm_nowcasting_probes(cfg: DSSConfig, results_dir: Path) -> pd.DataFrame:
     """Monthly macro nowcast: PCA factors on standardized features + lagged factors (DFM-style).
 
     Fits scaler and factor loadings on each expanding window's train period only, then
-    stacks F_t, F_{t-1}, ... for a Ridge probe (Stock–Watson–style reduced-form step).
+    stacks F_t, F_{t-1}, ... for a Ridge probe (Stock-Watson-style reduced-form step).
     """
     results_dir.mkdir(parents=True, exist_ok=True)
     targets_path = Path(cfg.targets_path)
@@ -1596,7 +1596,7 @@ def load_reference_model_z(
 ) -> Tuple[Optional[np.ndarray], Optional[pd.DatetimeIndex], Optional[DSSConfig]]:
     """Load the full-sample reference model (reference_model/ subdirectory).
 
-    This model is trained on 1985–2014 and validated on 2015–2017, giving it
+    This model is trained on 1985-2014 and validated on 2015-2017, giving it
     access to crisis + recovery variance for proper convergence.  Used
     exclusively for visualization (ADS plot, t-SNE, trajectory, embeddings.npz).
     Returns (None, None, None) if the model has not been trained yet.
@@ -1745,7 +1745,7 @@ def run_full_evaluation_journal(cfg: DSSConfig | None = None):
         )
 
     print("\n" + "=" * 60)
-    print("B5. GIACOMINI–WHITE TESTS")
+    print("B5. GIACOMINI-WHITE TESTS")
     print("=" * 60)
     gw_pca = _gw_from_prediction_files(results_dir)
     if len(gw_pca) > 0:
