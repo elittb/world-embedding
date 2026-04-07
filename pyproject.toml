@@ -42,16 +42,6 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-replication = [
-    "torch>=2.0",
-    "matplotlib>=3.7",
-    "seaborn>=0.12",
-    "yfinance>=0.2.31",
-    "fredapi>=0.5.1",
-    "requests>=2.31",
-    "openpyxl>=3.1",
-    "statsmodels>=0.14",
-]
 
 [project.urls]
 Homepage = "https://github.com/elittb/world-embedding"

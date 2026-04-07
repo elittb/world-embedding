@@ -19,3 +19,5 @@ env/
 *~
 .ipynb_checkpoints/
 *.npz
+replication/
+scripts/

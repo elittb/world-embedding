@@ -4,7 +4,7 @@
 
 The *world embedding* is a daily, low-dimensional vector that compresses news narratives, financial market data, policy uncertainty, geopolitical risk, and macroeconomic releases into a unified representation of the aggregate economic state. A machine-learning-based multimodal encoder produces this embedding under a strict expanding-window protocol, ensuring the series is look-ahead-free at every point in time. Unsupervised clustering of the *world embedding* recovers known business-cycle regimes with higher fidelity than linear methods, and the representation carries incremental out-of-sample forecasting power for labor-market indicators. The primary application addresses the interest-rate spanning puzzle: embedding principal components capture unspanned macro risks that raise the in-sample R-squared for bond excess returns by 10 to 34 percentage points beyond standard yield-curve factors. This predictive content originates from non-yield information and survives out-of-sample evaluation, orthogonalization, and a pseudo-out-of-sample extension through the Covid-19 pandemic.
 
-This repository releases the full output: **9,520 pre-computed daily vectors** covering January 2, 1985 through June 30, 2021, pre-trained model weights for all expanding windows, and the complete training and evaluation code. The vectors can be merged into any dataset in three lines of code. No GPU, no deep-learning expertise, no retraining required.
+This repository releases the full output: **9,520 pre-computed daily vectors** covering January 2, 1985 through June 30, 2021, pre-trained model weights for all expanding windows, and the model architecture code. The vectors can be merged into any dataset in three lines of code. No GPU, no deep-learning expertise, no retraining required.
 
 [![Paper](https://img.shields.io/badge/Paper-SSRN%206503446-blue)](https://papers.ssrn.com/abstract=6503446)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
@@ -112,7 +112,7 @@ world-embedding/
 ├── worldembedding/                     # Pip-installable Python package
 │   ├── __init__.py
 │   ├── core.py                         # load_embedding(), get_principal_components()
-│   └── model/                          # Full DSSDE architecture (for advanced users)
+│   └── model/                          # Full DSSDE architecture (inspect the pipeline)
 │       ├── dssde.py                    # Main model class
 │       ├── encoder.py                  # Modality encoders, cross-modal attention, GRU
 │       ├── decoder.py                  # Observation reconstruction decoder
@@ -122,20 +122,6 @@ world-embedding/
 │   ├── quickstart.py                   # 30-line demo: load, PCA, historical analogs
 │   ├── bond_spanning.py                # Replicate the spanning puzzle result
 │   └── regime_analysis.py             # Unsupervised recession detection
-├── replication/                        # Full training and evaluation pipeline
-│   ├── config.py                       # All hyperparameters (DSSConfig dataclass)
-│   ├── train.py                        # Training loop with expanding-window protocol
-│   ├── evaluate.py                     # Evaluation suite (nowcasting, regime, forecasting)
-│   ├── expanding_windows.py            # W1/W2/W3 window definitions
-│   ├── data/
-│   │   ├── download_all.py             # Bulk data download (FRED, Yahoo, etc.)
-│   │   └── assemble.py                 # Feature panel assembly
-│   └── model/                          # Model code (mirrors worldembedding/model/)
-├── scripts/
-│   ├── spanning_puzzle.py              # Bond spanning regressions (Tables 5-8)
-│   ├── covid_era_extension.py          # FAVAR simulation + pseudo-OOS (Section 7)
-│   ├── historical_analog_case_study.py # Cosine similarity retrieval (Table 4)
-│   └── plot_regime_tsne.py             # t-SNE visualization (Figure 4)
 └── docs/
     ├── index.html                      # Landing page for GitHub Pages / SEO
     └── SEARCH_CONSOLE.md               # Google Search Console setup guide
@@ -234,42 +220,15 @@ No GPU, no PyTorch, no ML expertise required. Download the CSV and go.
 pip install git+https://github.com/elittb/world-embedding.git
 ```
 
-### Replication (training from scratch)
-
-```bash
-git clone https://github.com/elittb/world-embedding.git
-cd world-embedding
-pip install -e ".[replication]"
-```
-
 **Python version:** 3.9+
 
 **Core dependencies:** `pandas>=2.0`, `numpy>=1.24`, `scikit-learn>=1.3`
 
-**Replication dependencies (optional):** `torch>=2.0`, `matplotlib>=3.7`, `seaborn>=0.12`, `yfinance>=0.2.31`, `fredapi>=0.5.1`, `statsmodels>=0.14`
-
----
-
-## Replication
-
-To replicate the paper results from scratch:
-
-```bash
-# 1. Download raw data (requires FRED API key)
-export FRED_API_KEY="your_key_here"
-python -m replication.data.download_all
-
-# 2. Assemble feature panel
-python -m replication.data.assemble
-
-# 3. Train (expanding-window protocol; ~2-4 hours on GPU)
-python -m replication.train journal
-
-# 4. Evaluate
-python -m replication.evaluate journal
-```
-
 Pre-trained model weights for all three expanding windows and the reference model are available under [Releases](https://github.com/elittb/world-embedding/releases).
+
+### Training and replication code
+
+The full training pipeline, evaluation suite, and replication scripts are available upon request. Please contact the author (see [Contact](#contact)).
 
 ---
 
