@@ -228,7 +228,7 @@ Pre-trained model weights for all three expanding windows and the reference mode
 
 ### Training and replication code
 
-The full training pipeline, evaluation suite, and replication scripts are available upon request. Please contact the author (see [Contact](#contact)).
+Full training and replication code will be released upon publication.
 
 ---
 
